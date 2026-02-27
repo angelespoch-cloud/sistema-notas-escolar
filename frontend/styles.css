@@ -1,0 +1,45 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+section {
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+form {
+  display: grid;
+  gap: 8px;
+}
+
+input, button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+button {
+  cursor: pointer;
+  background: #2563eb;
+  color: #fff;
+}
+
+pre {
+  white-space: pre-wrap;
+  margin: 0;
+}
