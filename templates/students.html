@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Estudiantes{% endblock %}
+{% block content %}
+<h2 class="mb-3">Registro de estudiantes</h2>
+<form method="post" class="row g-3 mb-4 card card-body">
+  <div class="col-md-4"><label class="form-label">Nombre completo</label><input name="nombre" class="form-control" required></div>
+  <div class="col-md-3"><label class="form-label">Código</label><input name="codigo" class="form-control" required></div>
+  <div class="col-md-3"><label class="form-label">Curso</label>
+    <select name="course_id" class="form-select" required>
+      <option value="">Seleccionar...</option>
+      {% for c in courses %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2 d-flex align-items-end"><button class="btn btn-primary w-100">Guardar</button></div>
+</form>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead><tr><th>ID</th><th>Nombre</th><th>Código</th><th>Curso</th></tr></thead>
+      <tbody>
+      {% for s in students %}
+      <tr><td>{{ s.id }}</td><td>{{ s.full_name }}</td><td>{{ s.student_code }}</td><td>{{ s.course_name }}</td></tr>
+      {% else %}
+      <tr><td colspan="4" class="text-center py-3">Sin estudiantes registrados.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

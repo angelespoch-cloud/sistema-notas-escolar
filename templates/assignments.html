@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Asignaciones{% endblock %}
+{% block content %}
+<h2 class="mb-3">Asignación de materias a docentes por curso</h2>
+<form method="post" class="row g-3 mb-4 card card-body">
+  <div class="col-md-4"><label class="form-label">Materia</label><input name="materia" class="form-control" placeholder="Matemática" required></div>
+  <div class="col-md-3"><label class="form-label">Curso</label>
+    <select name="course_id" class="form-select" required>
+      <option value="">Seleccionar...</option>
+      {% for c in courses %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3"><label class="form-label">Docente</label>
+    <select name="teacher_id" class="form-select" required>
+      <option value="">Seleccionar...</option>
+      {% for t in teachers %}<option value="{{ t.id }}">{{ t.name }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2 d-flex align-items-end"><button class="btn btn-primary w-100">Asignar</button></div>
+</form>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead><tr><th>ID</th><th>Curso</th><th>Materia</th><th>Docente</th></tr></thead>
+      <tbody>
+      {% for a in assignments %}
+      <tr><td>{{ a.id }}</td><td>{{ a.course_name }}</td><td>{{ a.subject_name }}</td><td>{{ a.teacher_name }}</td></tr>
+      {% else %}
+      <tr><td colspan="4" class="text-center py-3">Sin asignaciones registradas.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Docentes{% endblock %}
+{% block content %}
+<h2 class="mb-3">Registro de docentes</h2>
+<form method="post" class="row g-3 mb-4 card card-body">
+  <div class="col-md-6"><label class="form-label">Nombre</label><input name="nombre" class="form-control" required></div>
+  <div class="col-md-6"><label class="form-label">Email</label><input name="email" type="email" class="form-control"></div>
+  <div class="col-12"><button class="btn btn-primary">Guardar docente</button></div>
+</form>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead><tr><th>ID</th><th>Nombre</th><th>Email</th><th>Registro</th></tr></thead>
+      <tbody>
+      {% for t in teachers %}
+      <tr><td>{{ t.id }}</td><td>{{ t.name }}</td><td>{{ t.email or '-' }}</td><td>{{ t.created_at }}</td></tr>
+      {% else %}
+      <tr><td colspan="4" class="text-center py-3">Sin docentes registrados.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

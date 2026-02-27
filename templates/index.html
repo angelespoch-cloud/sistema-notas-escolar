@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Inicio | Sistema de Notas{% endblock %}
+{% block content %}
+<div class="p-4 p-md-5 mb-4 rounded-3 bg-light border">
+  <h1 class="display-6 fw-bold">Sistema gratuito de registro de notas escolares</h1>
+  <p class="lead mb-0">Primera versión funcional para gestionar docentes, cursos, estudiantes, asignaciones y edición rápida de notas.</p>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-3"><div class="card card-stat"><div class="card-body"><small>Docentes</small><h3>{{ stats.docentes }}</h3></div></div></div>
+  <div class="col-md-3"><div class="card card-stat"><div class="card-body"><small>Cursos</small><h3>{{ stats.cursos }}</h3></div></div></div>
+  <div class="col-md-3"><div class="card card-stat"><div class="card-body"><small>Estudiantes</small><h3>{{ stats.estudiantes }}</h3></div></div></div>
+  <div class="col-md-3"><div class="card card-stat"><div class="card-body"><small>Asignaciones</small><h3>{{ stats.asignaciones }}</h3></div></div></div>
+</div>
+{% endblock %}

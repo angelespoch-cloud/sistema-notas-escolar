@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Cursos{% endblock %}
+{% block content %}
+<h2 class="mb-3">Registro de cursos</h2>
+<form method="post" class="row g-3 mb-4 card card-body">
+  <div class="col-md-6"><label class="form-label">Nombre del curso</label><input name="nombre" class="form-control" required></div>
+  <div class="col-md-6"><label class="form-label">Nivel</label><input name="nivel" class="form-control" placeholder="Primaria, Secundaria..."></div>
+  <div class="col-12"><button class="btn btn-primary">Guardar curso</button></div>
+</form>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead><tr><th>ID</th><th>Curso</th><th>Nivel</th><th>Registro</th></tr></thead>
+      <tbody>
+      {% for c in courses %}
+      <tr><td>{{ c.id }}</td><td>{{ c.name }}</td><td>{{ c.level or '-' }}</td><td>{{ c.created_at }}</td></tr>
+      {% else %}
+      <tr><td colspan="4" class="text-center py-3">Sin cursos registrados.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
