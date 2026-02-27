@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Notas Escolar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Sistema de Registro de Notas</h1>
+      <p>Base inicial con módulos de docentes, cursos, estudiantes y asignaciones.</p>
+
+      <section>
+        <h2>Registro de docentes</h2>
+        <form id="form-docentes">
+          <input name="nombre" placeholder="Nombre" required />
+          <input name="email" placeholder="Email" required />
+          <input name="especialidad" placeholder="Especialidad" required />
+          <button type="submit">Guardar docente</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Registro de cursos</h2>
+        <form id="form-cursos">
+          <input name="nombre" placeholder="Curso (ej. 3B)" required />
+          <input name="nivel" placeholder="Nivel" required />
+          <input name="anio" type="number" placeholder="Año" required />
+          <button type="submit">Guardar curso</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Registro de estudiantes</h2>
+        <form id="form-estudiantes">
+          <input name="nombre" placeholder="Nombre" required />
+          <input name="apellido" placeholder="Apellido" required />
+          <input name="documento" placeholder="Documento" required />
+          <input name="curso_id" type="number" placeholder="ID Curso" required />
+          <button type="submit">Guardar estudiante</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Asignación de materias a docentes por curso</h2>
+        <form id="form-asignaciones">
+          <input name="docente_id" type="number" placeholder="ID Docente" required />
+          <input name="curso_id" type="number" placeholder="ID Curso" required />
+          <input name="materia_id" type="number" placeholder="ID Materia" required />
+          <button type="submit">Guardar asignación</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Respuesta del servidor</h2>
+        <pre id="output">Sin operaciones aún.</pre>
+      </section>
+    </main>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>

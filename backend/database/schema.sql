@@ -1,0 +1,40 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS docentes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nombre TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
+  especialidad TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS cursos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nombre TEXT NOT NULL,
+  nivel TEXT NOT NULL,
+  anio INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS estudiantes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nombre TEXT NOT NULL,
+  apellido TEXT NOT NULL,
+  documento TEXT NOT NULL UNIQUE,
+  curso_id INTEGER NOT NULL,
+  FOREIGN KEY (curso_id) REFERENCES cursos (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS materias (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nombre TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS asignaciones_docentes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  docente_id INTEGER NOT NULL,
+  curso_id INTEGER NOT NULL,
+  materia_id INTEGER NOT NULL,
+  UNIQUE(docente_id, curso_id, materia_id),
+  FOREIGN KEY (docente_id) REFERENCES docentes (id) ON DELETE CASCADE,
+  FOREIGN KEY (curso_id) REFERENCES cursos (id) ON DELETE CASCADE,
+  FOREIGN KEY (materia_id) REFERENCES materias (id) ON DELETE CASCADE
+);
