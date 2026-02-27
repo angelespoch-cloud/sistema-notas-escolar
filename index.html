@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Notas Escolar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Sistema de Notas Escolar</h1>
+      <p>Gestiona docentes, estudiantes y cursos desde una interfaz simple.</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Configurar backend</h2>
+        <p>Define la URL base del backend existente para consumir la API.</p>
+        <form id="backend-form" class="inline-form">
+          <label for="apiBaseUrl">URL del backend</label>
+          <input
+            id="apiBaseUrl"
+            name="apiBaseUrl"
+            type="url"
+            placeholder="http://localhost:3000/api"
+            required
+          />
+          <button type="submit">Guardar URL</button>
+        </form>
+        <small id="backend-status">No se ha configurado el backend.</small>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Registrar docente</h2>
+          <form id="teacher-form">
+            <label for="teacher-name">Nombre completo</label>
+            <input id="teacher-name" name="name" type="text" required />
+
+            <label for="teacher-email">Correo</label>
+            <input id="teacher-email" name="email" type="email" required />
+
+            <label for="teacher-specialty">Especialidad</label>
+            <input id="teacher-specialty" name="specialty" type="text" required />
+
+            <button type="submit">Registrar docente</button>
+          </form>
+          <p class="feedback" id="teacher-feedback"></p>
+        </article>
+
+        <article class="card">
+          <h2>Registrar estudiante</h2>
+          <form id="student-form">
+            <label for="student-name">Nombre completo</label>
+            <input id="student-name" name="name" type="text" required />
+
+            <label for="student-email">Correo</label>
+            <input id="student-email" name="email" type="email" required />
+
+            <label for="student-grade">Grado</label>
+            <input id="student-grade" name="grade" type="text" required />
+
+            <button type="submit">Registrar estudiante</button>
+          </form>
+          <p class="feedback" id="student-feedback"></p>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <h2>Lista de cursos</h2>
+          <button id="refresh-courses" type="button">Actualizar cursos</button>
+        </div>
+        <ul id="courses-list" class="courses-list"></ul>
+        <p class="feedback" id="courses-feedback"></p>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
